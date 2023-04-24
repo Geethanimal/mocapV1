@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-
 import { FaceMesh } from '@mediapipe/face_mesh'
 import * as Facemesh from '@mediapipe/face_mesh'
 import * as cam from '@mediapipe/camera_utils'

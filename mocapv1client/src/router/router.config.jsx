@@ -2,6 +2,7 @@
 import { useRoutes } from "react-router-dom";
 
 import ComponentFaceMesh from "../components/face-mesh/face-mesh";
+import ComponentHPE from "../components/human-pose-estimation/human-pose-estimater";
 
 const RouterConfig = () => {
 
@@ -11,6 +12,9 @@ const RouterConfig = () => {
     }, {
         path: "/facemesh",
         element: <ComponentFaceMesh />
+    },{
+        path: "/humanpose",
+        element: <ComponentHPE />
     }]));
 
 }
