@@ -2,7 +2,7 @@
 
 ## A.B Geethan Imal<sup>1</sup>, Nethmi Weerasingha<sup>2</sup>
 
-### <sup>1</sup>University of Plymouth, Drake Circus, Plymouth PL4 8AA, United Kingdom 10749149@students.plymouth.ac.uk
+### <sup>1</sup>University of Plymouth, Drake Circus, Plymouth PL4 8AA, United Kingdom 10749149@students.plymouth.ac.uk, geethanimal0@gmail.com
 
 ### <sup>2</sup>National School of Business Management, Mahenwaththa, Pitipana, Homagama, 10200, Sri Lanka nethmi.w@nsbm.ac.lk
 
