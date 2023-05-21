@@ -9,4 +9,4 @@ EditorBuildSettings:
     path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.20.0/Hello Cardboard/Scenes/HelloCardboard.unity
     guid: 145a2a45d7bc746b19cb68410368bf96
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2b4c323d819f85942b4d2d1c73489670, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3df16400dcff60647ab723815b1eb14e, type: 2}
