@@ -54,7 +54,9 @@ const HPE = () => {
     //   });
 
     function onResults(results) {
-        console.log(results);
+        
+        
+        
 
         // const video = webcamRef.current.video;
         const videoWidth = webcamRef.current.video.videoWidth;
@@ -91,7 +93,14 @@ const HPE = () => {
 
         if (results.poseLandmarks) {
 
-            sendMessage(results.poseLandmarks);
+            if(results.poseLandmarks[15].visibility >0.9){
+                console.log(results.poseLandmarks[15]);
+                sendMessage(results.poseLandmarks[15]);
+            }
+
+            
+
+
             drawLandmarks(
                 canvasCtx,
                 Object.values(pose.POSE_LANDMARKS_LEFT)

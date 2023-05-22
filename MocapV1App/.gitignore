@@ -51,3 +51,7 @@ sysinfo.txt
 
 # Cache auto-generated data
 /[Uu]nity[Cc]ache/
+
+/[Aa]ssets/Firebase
+
+/[Aa]ssets/google-services.json.meta
