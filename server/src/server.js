@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
         if (data.message.visibility > 0.9) {
 
             console.log(data.message);
-            const ref = admin.database().ref('/poseLandMarks/poseLandMarks/left_wrist/-NW1qisJRxVRCB0KwJlS'); // Replace with the path to your data in the Realtime Database
+            const ref = admin.database().ref('/user123/poseLandMarks/left_wrist'); // Replace with the path to your data in the Realtime Database
             ref.update(data.message)
                 .then(() => {
                     // res.status(201).json({ message: 'Data created successfully' });

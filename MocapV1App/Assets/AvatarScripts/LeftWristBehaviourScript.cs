@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
-//using Firebase.Unity.Editor;
 
 public class LeftWristBehaviourScript : MonoBehaviour
 {
     public DatabaseReference databaseReference;
-    public Transform targetTransform;
-
-    //public double Myx = 0.7377692, Myy = 2.435655, Myz = 0.06171536;
 
     public float x, y, z;
 
@@ -22,11 +18,8 @@ public class LeftWristBehaviourScript : MonoBehaviour
         // Get the transform component of the game object
         leftWristTransform = GetComponent<Transform>();
 
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-
         // Set up Firebase Realtime Database
-        //Firebase.FirebaseApp.DefaultInstance.Options.DatabaseUrl("https://mocapv1-15bb7-default-rtdb.firebaseio.com");
-        //databaseReference = FirebaseDatabase.DefaultInstance.GetReference("/poseLandMarks/poseLandMarks/left_wrist/-NW1qisJRxVRCB0KwJlS");
+        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
 
         // Set up listener for data changes
         databaseReference.ValueChanged += HandleDataChange;
@@ -47,9 +40,9 @@ public class LeftWristBehaviourScript : MonoBehaviour
         if (args.Snapshot != null && args.Snapshot.Value != null)
         {
             // Example: Updating position
-            x = float.Parse(args.Snapshot.Child("poseLandMarks").Child("poseLandMarks").Child("left_wrist").Child("-NW1qisJRxVRCB0KwJlS").Child("x").Value.ToString());
-            y = float.Parse(args.Snapshot.Child("poseLandMarks").Child("poseLandMarks").Child("left_wrist").Child("-NW1qisJRxVRCB0KwJlS").Child("y").Value.ToString());
-            z = float.Parse(args.Snapshot.Child("poseLandMarks").Child("poseLandMarks").Child("left_wrist").Child("-NW1qisJRxVRCB0KwJlS").Child("z").Value.ToString());
+            x = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("x").Value.ToString());
+            y = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("y").Value.ToString());
+            z = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("z").Value.ToString());
             //targetTransform.position = new Vector3(x, y, z);
 
             // Example: Updating rotation
@@ -58,22 +51,18 @@ public class LeftWristBehaviourScript : MonoBehaviour
             // Example: Updating scale
             // ...
 
-            Debug.Log(x);
-            leftWristTransform.position = new Vector3(x, y, z);
+            //x = x - (float)1.65;
+            //y = y + (float)0.8926;
+            //z = z + (float)0.6188;
+
+            //Debug.Log(x);
+            leftWristTransform.position = new Vector3(x,y,z);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //Myz = Myz - 0.1;
-
-        //gameObject.transform.Position(new Vector3((float)Myx, (float)Myy, (float)Myz));
-        //targetTransform.position = new Vector3((float)Myx, (float)Myy, (float)Myz);
-        //Debug.Log(x);
-        // For example, you can change the position, rotation, or scale
-        //leftWristTransform.position = new Vector3(x, y, z);
         
     }
 }
