@@ -24,10 +24,44 @@ const socket = io.connect("http://localhost:3001");
 // creating a function for HPE
 const HPE = () => {
 
-    
+    // Left wrist landmarks sending Socket.io function
+    const sendLeftWristLandMarks = (poseLandmarks) => {
+        socket.emit("send_LeftWristLandMarks", {message:poseLandmarks})
+    }
 
-    const sendMessage = (poseLandmarks) => {
-        socket.emit("send_message", {message:poseLandmarks})
+    // Left Elbow landmarks sending Socket.io function
+    const sendLeftElbowLandMarks = (poseLandmarks) => {
+        socket.emit("send_LeftElbowLandMarks", {message:poseLandmarks})
+    }
+
+    // Left Elbow landmarks sending Socket.io function
+    const sendLeftSholderLandMarks = (poseLandmarks) => {
+        socket.emit("send_LeftSholderLandMarks", {message:poseLandmarks})
+    }
+
+    // Right Wrist landmarks sending Socket.io function
+    const sendRightWristLandMarks = (poseLandmarks) => {
+        socket.emit("send_RightWristLandMarks", {message:poseLandmarks})
+    }
+
+    // Right Elbow landmarks sending Socket.io function
+    const sendRightElbowLandMarks = (poseLandmarks) => {
+        socket.emit("send_RightElbowLandMarks", {message:poseLandmarks})
+    }
+
+    // Right Sholder landmarks sending Socket.io function
+    const sendRightSholderLandMarks = (poseLandmarks) => {
+        socket.emit("send_RightSholderLandMarks", {message:poseLandmarks})
+    }
+
+    // Right Ankle landmarks sending Socket.io function
+    const sendRightAnkleLandMarks = (poseLandmarks) => {
+        socket.emit("send_RightAnkleLandMarks", {message:poseLandmarks})
+    }
+
+    // Left Ankle landmarks sending Socket.io function
+    const sendLeftAnkleLandMarks = (poseLandmarks) => {
+        socket.emit("send_LeftAnkleLandMarks", {message:poseLandmarks})
     }
 
     const webcamRef = useRef(null);
@@ -35,23 +69,6 @@ const HPE = () => {
     const connect = window.drawConnectors;
     const drawLandmarks = window.drawLandmarks;
     var camera = null;
-
-    // const landmarkgridRef = useRef(null);
-    // const LandmarkGrid = window.LandmarkGrid;
-    // const grid = new LandmarkGrid(landmarkgridRef);
-
-    // const grid = new LandmarkGrid(landmarkgridRef, {
-    //     connectionColor: 0xCCCCCC,
-    //     definedColors:
-    //         [{name: 'LEFT', value: 0xffa500}, {name: 'RIGHT', value: 0x00ffff}],
-    //     range: 2,
-    //     fitToGrid: true,
-    //     labelSuffix: 'm',
-    //     landmarkSize: 2,
-    //     numCellsPerAxis: 4,
-    //     showHidden: false,
-    //     centered: true,
-    //   });
 
     function onResults(results) {
 
@@ -68,6 +85,7 @@ const HPE = () => {
         canvasCtx.save();
         canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 
+        
         if (results.segmentationMask) {
 
             canvasCtx.drawImage(results.segmentationMask, 0, 0,
@@ -88,15 +106,53 @@ const HPE = () => {
 
         }
 
-        if (results.poseLandmarks) {
+        if (results.poseWorldLandmarks && results.poseLandmarks) {
 
-            if(results.poseLandmarks[15].visibility >0.9){
-                console.log(results.poseLandmarks[15]);
-                sendMessage(results.poseLandmarks[15]);
+            console.log(results.poseWorldLandmarks[15]);
+            
+            // Left wrist landmarks sending
+            if(results.poseWorldLandmarks[15].visibility >0.9){
+                // console.log(results.poseLandmarks[15]);
+                sendLeftWristLandMarks(results.poseWorldLandmarks[15]);
             }
 
-            
+            // Left elbow landmarks sending
+            if(results.poseWorldLandmarks[13].visibility >0.9){
+                // console.log(results.poseLandmarks[13]);
+                sendLeftElbowLandMarks(results.poseWorldLandmarks[13]);
+            }
 
+            // Left shoulder landmarks sending
+            if(results.poseWorldLandmarks[11].visibility >0.9){
+                // console.log(results.poseLandmarks[11]);
+                sendLeftSholderLandMarks(results.poseWorldLandmarks[11]);
+            }
+
+            // Left ankle landmarks sending
+            if(results.poseWorldLandmarks[27].visibility >0.9){
+                // console.log(results.poseLandmarks[27]);
+                sendLeftAnkleLandMarks(results.poseWorldLandmarks[27]);   
+            }
+
+            // Right wrist landmarks sending
+            if(results.poseWorldLandmarks[16].visibility >0.9){
+                sendRightWristLandMarks(results.poseWorldLandmarks[16]);
+            }
+
+            // Right elbow landmarks sending
+            if(results.poseWorldLandmarks[14].visibility >0.9){
+                sendRightElbowLandMarks(results.poseWorldLandmarks[14]);
+            }
+
+            // Right shoulder landmarks sending
+            if(results.poseWorldLandmarks[12].visibility >0.9){
+                sendRightSholderLandMarks(results.poseWorldLandmarks[12]);
+            }
+
+            // Right ankle landmarks sending
+            if(results.poseWorldLandmarks[28].visibility >0.9){
+                sendRightAnkleLandMarks(results.poseWorldLandmarks[28]);
+            }
 
             drawLandmarks(
                 canvasCtx,
@@ -116,22 +172,55 @@ const HPE = () => {
                     .map(index => results.poseLandmarks[index]),
                 { visibilityMin: 0.65, color: 'white', fillColor: 'white' });
 
-
-            // grid.updateLandmarks(results.poseWorldLandmarks);
         }
+
+        // if(results.poseLandmarks){
+        //     // Left wrist landmarks sending
+        //     if(results.poseLandmarks[15].visibility >0.9){
+        //         // console.log(results.poseLandmarks[15]);
+        //         sendLeftWristLandMarks(results.poseLandmarks[15]);
+        //     }
+
+        //     // Left elbow landmarks sending
+        //     if(results.poseLandmarks[13].visibility >0.9){
+        //         // console.log(results.poseLandmarks[13]);
+        //         sendLeftElbowLandMarks(results.poseLandmarks[13]);
+        //     }
+
+        //     // Left shoulder landmarks sending
+        //     if(results.poseLandmarks[11].visibility >0.9){
+        //         // console.log(results.poseLandmarks[11]);
+        //         sendLeftSholderLandMarks(results.poseLandmarks[11]);
+        //     }
+
+        //     // Left ankle landmarks sending
+        //     if(results.poseLandmarks[27].visibility >0.9){
+        //         // console.log(results.poseLandmarks[27]);
+        //         sendLeftAnkleLandMarks(results.poseLandmarks[27]);   
+        //     }
+
+        //     // Right wrist landmarks sending
+        //     if(results.poseLandmarks[16].visibility >0.9){
+        //         sendRightWristLandMarks(results.poseLandmarks[16]);
+        //     }
+
+        //     // Right elbow landmarks sending
+        //     if(results.poseLandmarks[14].visibility >0.9){
+        //         sendRightElbowLandMarks(results.poseLandmarks[14]);
+        //     }
+
+        //     // Right shoulder landmarks sending
+        //     if(results.poseLandmarks[12].visibility >0.9){
+        //         sendRightSholderLandMarks(results.poseLandmarks[12]);
+        //     }
+
+        //     // Right ankle landmarks sending
+        //     if(results.poseLandmarks[28].visibility >0.9){
+        //         sendRightAnkleLandMarks(results.poseLandmarks[28]);
+        //     }
+        // }
 
         canvasCtx.restore();
-
-        if (results.poseWorldLandmarks) {
-            // grid.updateLandmarks(results.poseWorldLandmarks, pose.POSE_CONNECTIONS, [
-            //     { list: Object.values(pose.POSE_LANDMARKS_LEFT), color: 'LEFT' },
-            //     { list: Object.values(pose.POSE_LANDMARKS_RIGHT), color: 'RIGHT' },
-            // ]);
-
-        } else {
-            // grid.updateLandmarks([]);
-        }
-
     }
 
     // setInterval(())
