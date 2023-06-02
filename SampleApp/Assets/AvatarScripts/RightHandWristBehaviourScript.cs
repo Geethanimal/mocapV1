@@ -8,7 +8,7 @@ public class RightHandBehaviourScript : MonoBehaviour
 {
     public DatabaseReference databaseReference;
 
-    public float x, y, z, errorx = -0.175f, errory = 2.1f, errorz = 1.895f;
+    public float x, y, z , errorx = -0.3911678f, errory = 1.9622949f, errorz = 0.4884264469146f;
 
     private Transform rightWristTransform;
 
@@ -49,9 +49,9 @@ public class RightHandBehaviourScript : MonoBehaviour
             // Example: Updating scale
             // ...
 
-            x = errorx + x ;
-            y = errory + y;
-            //z = z + errorz;
+            x = errorx + (x);
+            y = errory + (y);
+            //z = errorz + (z);
 
             //Debug.Log(x);
             rightWristTransform.position = new Vector3(x, y, z);

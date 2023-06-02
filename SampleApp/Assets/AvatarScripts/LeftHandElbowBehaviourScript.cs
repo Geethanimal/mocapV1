@@ -8,7 +8,7 @@ public class LeftHandElbowBehaviourScript : MonoBehaviour
 {
     public DatabaseReference databaseReference;
 
-    public float x, y, z;
+    public float x, y, z, errorx= 0.4162f, errory= 1.92233f, errorz;
 
     private Transform leftElbowTransform;
 
@@ -48,7 +48,9 @@ public class LeftHandElbowBehaviourScript : MonoBehaviour
 
             // Example: Updating scale
             // ...
-            
+
+            //x = x + errorx;
+            //y = y + errory;
             //Debug.Log(x);
             leftElbowTransform.position = new Vector3(x, y, z);
         }

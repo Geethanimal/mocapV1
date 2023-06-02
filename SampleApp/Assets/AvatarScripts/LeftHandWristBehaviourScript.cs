@@ -8,7 +8,7 @@ public class LeftHandWristBehaviourScript : MonoBehaviour
 {
     public DatabaseReference databaseReference;
 
-    public float x, y, z,posex,posey,posez, errorx = 0.165f , errory = 2.1f, errorz= 1.895f;
+    public float x, y, z, errorx = 0.3911678f, errory= 1.9622949f, errorz= -0.4884264469146f;
 
     private Transform leftWristTransform;
 
@@ -37,9 +37,9 @@ public class LeftHandWristBehaviourScript : MonoBehaviour
         if (args.Snapshot != null && args.Snapshot.Value != null)
         {
             // Example: Updating position
-            posex = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("x").Value.ToString());
-            posey = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("y").Value.ToString());
-            posez = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("z").Value.ToString());
+            x = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("x").Value.ToString());
+            y = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("y").Value.ToString());
+            z = float.Parse(args.Snapshot.Child("user123").Child("poseLandMarks").Child("left_wrist").Child("z").Value.ToString());
             //targetTransform.position = new Vector3(x, y, z);
 
             // Example: Updating rotation
@@ -48,9 +48,11 @@ public class LeftHandWristBehaviourScript : MonoBehaviour
             // Example: Updating scale
             // ...
 
-            x = (posex) + errorx;
-            y = (posey) + errory;
-            //z = z + errorz;
+            x = errorx + (x);
+            
+            y =  errory + (y);
+
+            //z = errorz + (z);
 
             //Debug.Log(x);
             leftWristTransform.position = new Vector3(x, y, z);

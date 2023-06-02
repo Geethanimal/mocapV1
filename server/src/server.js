@@ -54,16 +54,16 @@ io.on("connection", (socket) => {
         if (data.message.visibility > 0.9) {
 
             // console.log("left_elbow :" + data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/left_elbow'); // Replace with the path to your data in the Realtime Database
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/left_elbow'); // Replace with the path to your data in the Realtime Database
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
 
         }
 
@@ -74,16 +74,16 @@ io.on("connection", (socket) => {
         if(data.message.visibility > 0.9){
 
             // console.log("left_sholder : "+ data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/left_sholder');
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/left_sholder');
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
         }
     })
 
@@ -92,16 +92,16 @@ io.on("connection", (socket) => {
         if(data.message.visibility > 0.9){
 
             // console.log("left_ankle : "+ data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/left_ankle');
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/left_ankle');
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
         }
     })
 
@@ -128,16 +128,16 @@ io.on("connection", (socket) => {
         if(data.message.visibility > 0.9){
 
             // console.log("right_elbow : "+ data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/right_elbow');
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/right_elbow');
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
         }
     })
 
@@ -146,16 +146,16 @@ io.on("connection", (socket) => {
         if(data.message.visibility > 0.9){
 
             // console.log("right_sholder : "+ data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/right_sholder');
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/right_sholder');
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
         }
     })
     
@@ -164,16 +164,16 @@ io.on("connection", (socket) => {
         if(data.message.visibility > 0.9){
 
             // console.log("right_ankle : "+ data.message);
-            const ref = admin.database().ref('/user123/poseLandMarks/right_ankle');
-            ref.update(data.message)
-                .then(() => {
-                    // res.status(201).json({ message: 'Data created successfully' });
-                    console.log('Data created successfully');
-                })
-                .catch(error => {
-                    console.error('Error creating data:', error);
-                    // res.status(500).json({ error: 'Failed to create data' });
-                });
+            // const ref = admin.database().ref('/user123/poseLandMarks/right_ankle');
+            // ref.update(data.message)
+            //     .then(() => {
+            //         // res.status(201).json({ message: 'Data created successfully' });
+            //         console.log('Data created successfully');
+            //     })
+            //     .catch(error => {
+            //         console.error('Error creating data:', error);
+            //         // res.status(500).json({ error: 'Failed to create data' });
+            //     });
         }
     })
 
